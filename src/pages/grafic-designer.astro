@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import ContactSection from '../components/ContactSection.astro';
+---
+
+<BaseLayout title="Grafic Designer — Steelheads">
+  <main class="page-shell">
+    <SiteHeader />
+
+    <section class="hero-panel graphic-page-hero">
+      <div class="hero-background"></div>
+
+      <img
+        src="/assets/hero-watermark.png"
+        alt=""
+        class="hero-logo"
+        aria-hidden="true"
+      />
+
+      <div class="graphic-introduction">
+        <h1>Graphic Designer</h1>
+
+        <p>
+          I’m self-taught in using design software and Photoshop. I have over six
+          years’ experience using these programmes. I’ve created designs for various
+          organisations, including VMI, Uga Fribourg, Gusta Carona, etc.
+        </p>
+
+        <p>
+          If you need a graphic design, a logo or a leaflet, please don’t hesitate
+          to get in contact with me!
+        </p>
+      </div>
+    </section>
+
+    <section class="empty-content-area"></section>
+
+    <ContactSection />
+  </main>
+</BaseLayout>
+
+<style>
+  .graphic-page-hero {
+    min-height: 68vh;
+    padding: 70px 24px;
+  }
+
+  .graphic-introduction {
+    position: relative;
+    z-index: 2;
+    width: min(900px, 92vw);
+    text-align: center;
+  }
+
+  .graphic-introduction h1 {
+    display: block;
+    margin: 0 0 34px;
+    font-family: Candara, "Arial Narrow", Arial, sans-serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.84;
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+
+  .graphic-introduction p {
+    max-width: 820px;
+    margin: 0 auto;
+    font-size: clamp(1.25rem, 2.3vw, 1.9rem);
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .graphic-introduction p + p {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .graphic-page-hero {
+      min-height: 62vh;
+      padding: 50px 18px;
+    }
+
+    .graphic-introduction h1 {
+      margin-bottom: 26px;
+    }
+
+    .graphic-introduction p + p {
+      margin-top: 18px;
+    }
+  }
+</style>

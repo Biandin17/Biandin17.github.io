@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  { title: 'Grafica', text: 'Poster, visual, identità, artwork e contenuti digitali.' },
+  { title: 'Progetti', text: 'Una raccolta di tutto quello che sto costruendo, creando o sperimentando.' },
+  { title: 'Eventi', text: 'Date, collaborazioni, release, incontri e momenti da ricordare.' },
+  { title: 'Contatti', text: 'Link social, email e modi semplici per entrare in contatto.' }
+];
+
+const events = [
+  { date: 'Prossimamente', title: 'Nuovi eventi Steelheads', place: 'TBA' },
+  { date: '2026', title: 'Lancio sito ufficiale', place: 'Online' }
+];
+---
+<BaseLayout title="Steelheads — Official Site">
+  <main class="site">
+    <header class="hero">
+      <nav>
+        <a class="brand" href="/">steelheads.ch</a>
+        <div class="links">
+          <a href="#grafica">Grafica</a>
+          <a href="#progetti">Progetti</a>
+          <a href="#eventi">Eventi</a>
+          <a href="#contatti">Contatti</a>
+        </div>
+      </nav>
+
+      <section class="intro">
+        <p class="eyebrow">Portfolio / Archive / Events</p>
+        <h1>Steelheads</h1>
+        <p class="lead">
+          Un sito personale per raccogliere tutto quello che faccio: grafica, progetti,
+          eventi, idee, collaborazioni e contenuti visivi.
+        </p>
+        <div class="actions">
+          <a class="button" href="#progetti">Esplora</a>
+          <a class="button secondary" href="#contatti">Contatto</a>
+        </div>
+      </section>
+    </header>
+
+    <section class="grid" aria-label="Sezioni principali">
+      {sections.map((section) => (
+        <article class="card" id={section.title.toLowerCase()}>
+          <h2>{section.title}</h2>
+          <p>{section.text}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="feature" id="progetti">
+      <p class="eyebrow">In evidenza</p>
+      <h2>Progetti e archivio creativo</h2>
+      <p>
+        Qui puoi inserire gallery, descrizioni dei lavori, link esterni, immagini,
+        video embedded e pagine dedicate per ogni progetto.
+      </p>
+    </section>
+
+    <section class="events" id="eventi">
+      <p class="eyebrow">Calendario</p>
+      <h2>Eventi</h2>
+      <div class="event-list">
+        {events.map((event) => (
+          <article class="event">
+            <span>{event.date}</span>
+            <strong>{event.title}</strong>
+            <em>{event.place}</em>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="contact" id="contatti">
+      <p class="eyebrow">Contatti</p>
+      <h2>Resta in contatto</h2>
+      <p>Aggiungi qui email, Instagram, SoundCloud, YouTube, Behance, GitHub o altri link.</p>
+      <a class="button" href="mailto:hello@steelheads.ch">hello@steelheads.ch</a>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #08090b;
+    --panel: #11141a;
+    --text: #f3f4f6;
+    --muted: #a1a8b3;
+    --line: rgba(255, 255, 255, 0.1);
+    --accent: #d7ff3f;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top right, rgba(215, 255, 63, 0.12), transparent 30%), var(--bg);
+    color: var(--text);
+  }
+  a { color: inherit; text-decoration: none; }
+  .site { max-width: 1180px; margin: 0 auto; padding: 28px; }
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0; border-bottom: 1px solid var(--line);
+  }
+  .brand { font-weight: 900; letter-spacing: -0.04em; text-transform: lowercase; }
+  .links { display: flex; gap: 18px; color: var(--muted); font-size: 0.95rem; }
+  .links a:hover { color: var(--accent); }
+  .hero { min-height: 78vh; }
+  .intro { padding: 120px 0 90px; max-width: 860px; }
+  .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.78rem; font-weight: 800; }
+  h1 { font-size: clamp(4rem, 12vw, 10rem); line-height: 0.85; margin: 0 0 24px; letter-spacing: -0.09em; }
+  h2 { font-size: clamp(2rem, 5vw, 4rem); line-height: 0.95; margin: 0 0 18px; letter-spacing: -0.06em; }
+  .lead { font-size: clamp(1.15rem, 2vw, 1.6rem); color: var(--muted); max-width: 720px; }
+  .actions { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+  .button {
+    display: inline-flex; padding: 14px 20px; border-radius: 999px;
+    background: var(--accent); color: #08090b; font-weight: 800;
+  }
+  .button.secondary { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 40px 0; }
+  .card, .feature, .events, .contact {
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid var(--line); border-radius: 28px; padding: 28px;
+  }
+  .card h2 { font-size: 1.5rem; letter-spacing: -0.04em; }
+  .card p, .feature p, .events p, .contact p { color: var(--muted); line-height: 1.7; }
+  .feature, .events, .contact { margin: 16px 0; padding: 46px; }
+  .event-list { display: grid; gap: 12px; }
+  .event {
+    display: grid; grid-template-columns: 160px 1fr 120px; gap: 16px;
+    padding: 18px 0; border-top: 1px solid var(--line);
+  }
+  .event span { color: var(--accent); font-weight: 800; }
+  .event em { color: var(--muted); font-style: normal; text-align: right; }
+  @media (max-width: 800px) {
+    .site { padding: 18px; }
+    nav, .links { align-items: flex-start; flex-direction: column; }
+    .intro { padding: 80px 0 56px; }
+    .grid { grid-template-columns: 1fr; }
+    .feature, .events, .contact { padding: 28px; }
+    .event { grid-template-columns: 1fr; }
+    .event em { text-align: left; }
+  }
+</style>

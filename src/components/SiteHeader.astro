@@ -1,0 +1,16 @@
+---
+import { navItems } from '../data/navigation.js';
+---
+<header class="top-header">
+  <div class="title-line">
+    <a href="/" aria-label="Torna alla homepage">
+      <img src="/assets/header-logo.png" alt="Steelheads" class="title-logo" />
+    </a>
+  </div>
+
+  <nav class="main-nav" aria-label="Sezioni principali">
+    {navItems.map((item) => (
+      <a href={item.href}>{item.label}</a>
+    ))}
+  </nav>
+</header>

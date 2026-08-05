@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import ContactSection from '../components/ContactSection.astro';
+---
+
+<BaseLayout title="Hostile Wear — Steelheads">
+  <main class="page-shell">
+    <SiteHeader />
+
+    <section class="hero-panel hostile-page-hero">
+      <div class="hero-background"></div>
+
+      <img
+        src="/assets/hero-watermark.png"
+        alt=""
+        class="hero-logo"
+        aria-hidden="true"
+      />
+
+      <div class="hostile-project-link">
+        <p>View the project here:</p>
+
+        <a
+          href="https://www.instagram.com/hostile.ch"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          hostile.ch
+        </a>
+      </div>
+    </section>
+
+    <section class="empty-content-area"></section>
+
+    <ContactSection />
+  </main>
+</BaseLayout>
+
+<style>
+  .hostile-page-hero {
+    min-height: 68vh;
+    padding: 70px 24px;
+  }
+
+  .hostile-project-link {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    text-align: center;
+  }
+
+  .hostile-project-link p {
+    margin: 0;
+    color: var(--dark);
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .hostile-project-link a {
+    display: inline-flex;
+    padding: 14px 22px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0 var(--gray);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .hostile-project-link a:hover,
+  .hostile-project-link a:focus-visible {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 var(--gray);
+    outline: none;
+  }
+
+  @media (max-width: 900px) {
+    .hostile-page-hero {
+      min-height: 62vh;
+      padding: 50px 18px;
+    }
+
+    .hostile-project-link {
+      gap: 18px;
+    }
+  }
+</style>

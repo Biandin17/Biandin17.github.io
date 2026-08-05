@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import ContactSection from '../components/ContactSection.astro';
+
+const blocks = [
+  {
+    id: 'sh-events',
+    href: '/sh-events/',
+    title: 'SH Events',
+    text: 'Events and parties organised by Steelheads. Ask about partnerships or let’s work together to bring new ideas to life!'
+  },
+  {
+    id: 'grafic-designer',
+    href: '/grafic-designer/',
+    title: 'Grafic Designer',
+    text: 'I design: logos, flyers, visuals and various graphics for digital content.'
+  },
+  {
+    id: 'sticker-printing',
+    href: '/sticker-printing/',
+    title: 'Sticker Printing',
+    text: 'I design and print stickers for every occasion: for indoor and outdoor use, in custom shapes, and in both small and large quantities.'
+  },
+  {
+    id: 'hostile-wear',
+    href: '/hostile-wear/',
+    title: 'Hostile Wear',
+    text: 'Hostile Wear is my clothing brand, with hand-embroidered pieces.'
+  },
+  {
+    id: 'custom-clothes',
+    href: '/custom-clothes/',
+    title: 'Custom clothes',
+    text: 'I create customised clothing, whether individual pieces or outfits for groups and events, using a various production methods.'
+  },
+  {
+    id: 'about-me',
+    href: '/about-me/',
+    title: 'About me',
+    text: 'Find out more about who I am and what Steelheads is.'
+  }
+];
+---
+
+<BaseLayout title="Steelheads Events — Official Site">
+  <main id="home" class="page-shell">
+    <SiteHeader />
+
+    <section class="hero-panel">
+      <div class="hero-background"></div>
+      <img
+        src="/assets/hero-watermark.png"
+        alt=""
+        class="hero-logo"
+        aria-hidden="true"
+      />
+
+      <div class="hero-copy">
+        <h1>
+          <span class="hero-title-main">Steelheads</span>
+          <span class="hero-title-sub">by Bianda</span>
+        </h1>
+
+        <p>Events, Graphics, Customisation, and much more!</p>
+      </div>
+    </section>
+
+    <section class="section-grid">
+      {blocks.map((block) => (
+        <a
+          class="content-card"
+          id={block.id}
+          href={block.href}
+          aria-label={`Apri la pagina ${block.title}`}
+        >
+          <h2>{block.title}</h2>
+          <p>{block.text}</p>
+        </a>
+      ))}
+    </section>
+
+    <ContactSection />
+  </main>
+</BaseLayout>
