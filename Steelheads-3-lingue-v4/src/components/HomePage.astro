@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from './SiteHeader.astro';
+import ContactSection from './ContactSection.astro';
+import { getCopy, languagePath } from '../data/i18n.js';
+
+const { lang } = Astro.props;
+const copy = getCopy(lang);
+const cardSlugs = [
+  'sh-events',
+  'grafic-designer',
+  'sticker-printing',
+  'hostile-wear',
+  'custom-clothes',
+  'about-me'
+];
+---
+
+<BaseLayout lang={lang} currentSlug="" title={copy.home.title}>
+  <main id="home" class="page-shell">
+    <SiteHeader lang={lang} currentSlug="" />
+
+    <section class="hero-panel">
+      <div class="hero-background"></div>
+      <img
+        src="/assets/hero-watermark.png"
+        alt=""
+        class="hero-logo"
+        aria-hidden="true"
+      />
+
+      <div class="hero-copy">
+        <h1>
+          <span class="hero-title-main">Steelheads</span>
+          <span class="hero-title-sub">by Bianda</span>
+        </h1>
+
+        <p>{copy.home.tagline}</p>
+      </div>
+    </section>
+
+    <section class="section-grid">
+      {cardSlugs.map((slug) => (
+        <a
+          class="content-card"
+          id={slug}
+          href={languagePath(lang, slug)}
+          data-astro-prefetch="load"
+          aria-label={`${copy.a11y.openPage} ${copy.nav[slug]}`}
+        >
+          <h2>{copy.nav[slug]}</h2>
+          <p>{copy.home.cards[slug]}</p>
+        </a>
+      ))}
+    </section>
+
+    <ContactSection lang={lang} />
+  </main>
+</BaseLayout>

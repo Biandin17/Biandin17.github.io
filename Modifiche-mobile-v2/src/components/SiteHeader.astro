@@ -1,0 +1,67 @@
+---
+import { navItems } from '../data/navigation.js';
+---
+<header class="top-header" transition:persist="site-header">
+  <div class="title-line">
+    <a href="/" aria-label="Torna alla homepage">
+      <img src="/assets/header-logo.png" alt="Steelheads" class="title-logo" />
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="main-navigation"
+      aria-label="Apri il menu"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <nav id="main-navigation" class="main-nav" aria-label="Sezioni principali">
+    {navItems.map((item) => (
+      <a href={item.href}>{item.label}</a>
+    ))}
+  </nav>
+
+  <noscript>
+    <style>
+      @media (max-width: 900px) {
+        .main-nav { display: flex !important; }
+      }
+    </style>
+  </noscript>
+</header>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNavigation = document.querySelector('#main-navigation');
+
+  if (menuToggle instanceof HTMLButtonElement && mainNavigation instanceof HTMLElement) {
+    const closeMenu = () => {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Apri il menu');
+      mainNavigation.classList.remove('is-open');
+    };
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Apri il menu' : 'Chiudi il menu');
+      mainNavigation.classList.toggle('is-open', !isOpen);
+    });
+
+    mainNavigation.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+  }
+</script>

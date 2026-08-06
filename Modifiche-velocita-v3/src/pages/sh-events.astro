@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import ContactSection from '../components/ContactSection.astro';
+---
+
+<BaseLayout title="SH Events — Steelheads">
+  <main class="page-shell">
+    <SiteHeader />
+
+    <section class="hero-panel event-page-hero">
+      <div class="hero-background"></div>
+
+      <img
+        src="/assets/hero-watermark.png"
+        alt=""
+        class="hero-logo"
+        aria-hidden="true"
+      />
+
+      <div class="event-announcement-frame">
+        <img
+          src="/assets/event-soon-optimized.png"
+          alt="The next event is coming up. More information to be announced soon."
+          class="event-announcement"
+          width="1240"
+          height="1754"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <section class="empty-content-area"></section>
+
+    <ContactSection />
+  </main>
+</BaseLayout>
+
+<style>
+  .event-page-hero {
+    min-height: 82vh;
+    padding: 40px 24px;
+  }
+
+  .event-announcement-frame {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: min(620px, 88vw, 52.3vh);
+    line-height: 0;
+    background: #ffffff;
+    box-shadow: 4px 4px 0 var(--gray);
+  }
+
+  .event-announcement {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 900px) {
+    .event-page-hero {
+      min-height: clamp(500px, 72svh, 680px);
+      padding: 24px 14px;
+    }
+
+    .event-announcement-frame {
+      width: min(520px, 92vw, 58vh);
+    }
+  }
+</style>

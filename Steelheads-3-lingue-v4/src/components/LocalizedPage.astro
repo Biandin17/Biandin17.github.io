@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from './SiteHeader.astro';
+import ContactSection from './ContactSection.astro';
+import { getCopy } from '../data/i18n.js';
+
+const { lang, slug } = Astro.props;
+const copy = getCopy(lang);
+const page = copy.pages[slug];
+const hasIntroduction = ['grafic-designer', 'sticker-printing', 'about-me'].includes(slug);
+const introductionClass = slug === 'grafic-designer'
+  ? 'graphic-introduction'
+  : slug === 'sticker-printing'
+    ? 'sticker-introduction'
+    : 'about-introduction';
+---
+
+<BaseLayout lang={lang} currentSlug={slug} title={`${page.title} — Steelheads`}>
+  <main class="page-shell">
+    <SiteHeader lang={lang} currentSlug={slug} />
+
+    <section
+      class:list={[
+        'hero-panel',
+        {
+          'event-page-hero': slug === 'sh-events',
+          'graphic-page-hero': slug === 'grafic-designer',
+          'sticker-page-hero': slug === 'sticker-printing',
+          'hostile-page-hero': slug === 'hostile-wear',
+          'about-page-hero': slug === 'about-me',
+          'section-page-hero': ['custom-clothes', 'contacts'].includes(slug)
+        }
+      ]}
+      aria-label={`${page.title} — ${copy.a11y.mainArea}`}
+    >
+      <div class="hero-background"></div>
+
+      <img
+        src="/assets/hero-watermark.png"
+        alt=""
+        class="hero-logo"
+        aria-hidden="true"
+      />
+
+      {slug === 'sh-events' && (
+        <div class="event-announcement-frame">
+          <img
+            src="/assets/event-soon-optimized.png"
+            alt={page.imageAlt}
+            class="event-announcement"
+            width="1240"
+            height="1754"
+            decoding="async"
+          />
+        </div>
+      )}
+
+      {hasIntroduction && (
+        <div class={introductionClass}>
+          <h1>{page.title}</h1>
+          {page.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      )}
+
+      {slug === 'hostile-wear' && (
+        <div class="hostile-project-link">
+          <p>{page.linkIntro}</p>
+          <a
+            href="https://www.instagram.com/hostile.ch"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            hostile.ch
+          </a>
+        </div>
+      )}
+    </section>
+
+    <section
+      class="empty-content-area"
+      aria-label={`${page.title} — ${copy.a11y.contentComing}`}
+    ></section>
+
+    <ContactSection lang={lang} />
+  </main>
+</BaseLayout>
+
+<style>
+  .graphic-page-hero,
+  .sticker-page-hero,
+  .about-page-hero,
+  .hostile-page-hero {
+    min-height: 68vh;
+    padding: 70px 24px;
+  }
+
+  .graphic-introduction,
+  .sticker-introduction,
+  .about-introduction {
+    position: relative;
+    z-index: 2;
+    width: min(900px, 92vw);
+    text-align: center;
+  }
+
+  .graphic-introduction h1,
+  .sticker-introduction h1,
+  .about-introduction h1 {
+    display: block;
+    margin: 0 0 34px;
+    font-family: Candara, "Arial Narrow", Arial, sans-serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.84;
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+
+  .graphic-introduction p,
+  .sticker-introduction p,
+  .about-introduction p {
+    max-width: 820px;
+    margin: 0 auto;
+    font-size: clamp(1.25rem, 2.3vw, 1.9rem);
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .graphic-introduction p + p,
+  .sticker-introduction p + p,
+  .about-introduction p + p {
+    margin-top: 24px;
+  }
+
+  .event-page-hero {
+    min-height: 82vh;
+    padding: 40px 24px;
+  }
+
+  .event-announcement-frame {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: min(620px, 88vw, 52.3vh);
+    line-height: 0;
+    background: #ffffff;
+    box-shadow: 4px 4px 0 var(--gray);
+  }
+
+  .event-announcement {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hostile-project-link {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    text-align: center;
+  }
+
+  .hostile-project-link p {
+    margin: 0;
+    color: var(--dark);
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .hostile-project-link a {
+    display: inline-flex;
+    padding: 14px 22px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0 var(--gray);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hostile-project-link a:hover,
+  .hostile-project-link a:focus-visible {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 var(--gray);
+    outline: none;
+  }
+
+  @media (max-width: 900px) {
+    .graphic-page-hero {
+      min-height: clamp(540px, 76svh, 680px);
+      padding: 42px 18px;
+    }
+
+    .sticker-page-hero {
+      min-height: clamp(520px, 74svh, 660px);
+      padding: 42px 18px;
+    }
+
+    .about-page-hero {
+      min-height: clamp(480px, 70svh, 620px);
+      padding: 42px 18px;
+    }
+
+    .hostile-page-hero {
+      min-height: clamp(380px, 58svh, 500px);
+      padding: 42px 18px;
+    }
+
+    .graphic-introduction h1,
+    .sticker-introduction h1,
+    .about-introduction h1 {
+      margin-bottom: 22px;
+      font-size: clamp(2.75rem, 14vw, 5rem);
+      line-height: 0.9;
+      overflow-wrap: anywhere;
+    }
+
+    .graphic-introduction p,
+    .sticker-introduction p,
+    .about-introduction p {
+      font-size: clamp(1.05rem, 4.8vw, 1.35rem);
+      line-height: 1.24;
+    }
+
+    .graphic-introduction p + p,
+    .sticker-introduction p + p,
+    .about-introduction p + p {
+      margin-top: 18px;
+    }
+
+    .event-page-hero {
+      min-height: clamp(500px, 72svh, 680px);
+      padding: 24px 14px;
+    }
+
+    .event-announcement-frame {
+      width: min(520px, 92vw, 58vh);
+    }
+
+    .hostile-project-link { gap: 18px; }
+
+    .hostile-project-link a {
+      min-width: 180px;
+      justify-content: center;
+    }
+  }
+</style>

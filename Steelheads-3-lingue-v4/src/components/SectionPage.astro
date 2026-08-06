@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from './SiteHeader.astro';
+import ContactSection from './ContactSection.astro';
+
+const { title } = Astro.props;
+---
+<BaseLayout title={`${title} — Steelheads`}>
+  <main class="page-shell">
+    <SiteHeader />
+
+    <section class="hero-panel section-page-hero" aria-label={`${title} — area principale`}>
+      <div class="hero-background"></div>
+      <img
+        src="/assets/hero-watermark.png"
+        alt=""
+        class="hero-logo"
+        aria-hidden="true"
+      />
+    </section>
+
+    <section
+      class="empty-content-area"
+      aria-label={`${title} — contenuti in preparazione`}
+    ></section>
+
+    <ContactSection />
+  </main>
+</BaseLayout>
