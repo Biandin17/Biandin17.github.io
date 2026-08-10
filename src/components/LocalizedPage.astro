@@ -194,6 +194,14 @@ const introductionClass = slug === 'grafic-designer'
   }
 
   @media (max-width: 900px) {
+    .graphic-introduction,
+    .sticker-introduction,
+    .about-introduction {
+      width: 100%;
+      max-width: calc(100vw - 36px);
+      margin-inline: auto;
+    }
+
     .graphic-page-hero {
       min-height: clamp(540px, 76svh, 680px);
       padding: 42px 18px;
@@ -217,10 +225,14 @@ const introductionClass = slug === 'grafic-designer'
     .graphic-introduction h1,
     .sticker-introduction h1,
     .about-introduction h1 {
+      width: 100%;
+      max-width: 100%;
       margin-bottom: 22px;
-      font-size: clamp(2.75rem, 14vw, 5rem);
-      line-height: 0.9;
-      overflow-wrap: anywhere;
+      font-size: clamp(2.5rem, 13vw, 4.7rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+      overflow-wrap: normal;
+      word-break: normal;
     }
 
     .graphic-introduction p,
