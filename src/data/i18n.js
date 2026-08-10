@@ -44,7 +44,7 @@ export const translations = {
       contacts: 'Contatti'
     },
     home: {
-      title: 'Steelheads Events — Sito ufficiale',
+      title: 'Steelheads Events',
       tagline: 'Eventi, grafica, personalizzazione e molto altro!',
       cards: {
         'sh-events': 'Eventi e feste organizzati da Steelheads. Contattami per collaborazioni o per dare vita insieme a nuove idee!',
@@ -118,7 +118,7 @@ export const translations = {
       contacts: 'Contacts'
     },
     home: {
-      title: 'Steelheads Events — Site officiel',
+      title: 'Steelheads Events',
       tagline: 'Événements, graphisme, personnalisation et bien plus encore !',
       cards: {
         'sh-events': 'Événements et soirées organisés par Steelheads. Contactez-moi pour un partenariat ou pour donner vie ensemble à de nouvelles idées !',
@@ -192,7 +192,7 @@ export const translations = {
       contacts: 'Contacts'
     },
     home: {
-      title: 'Steelheads Events — Official Site',
+      title: 'Steelheads Events',
       tagline: 'Events, Graphics, Customisation, and much more!',
       cards: {
         'sh-events': 'Events and parties organised by Steelheads. Ask about partnerships or let’s work together to bring new ideas to life!',
