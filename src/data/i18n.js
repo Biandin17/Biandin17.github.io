@@ -68,8 +68,7 @@ export const translations = {
           'Se hai bisogno di una grafica, un logo o un volantino, non esitare a contattarmi!'
         ],
         portfolio: {
-          eyebrow: 'Portfolio',
-          title: 'Progetti selezionati',
+          title: 'Portfolio grafiche',
           intro: 'Una selezione di grafiche realizzate per eventi e organizzazioni.',
           view: 'Ingrandisci',
           close: 'Chiudi immagine',
@@ -77,13 +76,13 @@ export const translations = {
           next: 'Immagine successiva',
           projects: {
             vmi: {
-              title: 'VMI — 50° anniversario',
-              meta: 'Save the date · 2026',
+              title: 'VMI — Celebrazione 50 anni',
+              meta: '2026',
               imageAlt: 'Save the date realizzato per il 50° anniversario di VMI'
             },
             uga: {
               title: 'UGA Fribourg',
-              meta: 'Comunicazione eventi · Semestre autunnale 2025'
+              meta: 'Comunicazione eventi 2025–2026'
             },
             gusta: {
               title: 'Gusta Carona',
@@ -165,8 +164,7 @@ export const translations = {
           'Si vous avez besoin d’un visuel, d’un logo ou d’un flyer, n’hésitez pas à me contacter !'
         ],
         portfolio: {
-          eyebrow: 'Portfolio',
-          title: 'Projets sélectionnés',
+          title: 'Portfolio graphique',
           intro: 'Une sélection de créations graphiques réalisées pour des événements et des organisations.',
           view: 'Agrandir',
           close: 'Fermer l’image',
@@ -174,13 +172,13 @@ export const translations = {
           next: 'Image suivante',
           projects: {
             vmi: {
-              title: 'VMI — 50e anniversaire',
-              meta: 'Save the date · 2026',
+              title: 'VMI — Célébration des 50 ans',
+              meta: '2026',
               imageAlt: 'Save the date réalisé pour le 50e anniversaire de VMI'
             },
             uga: {
               title: 'UGA Fribourg',
-              meta: 'Communication événementielle · Semestre d’automne 2025'
+              meta: 'Communication événementielle 2025–2026'
             },
             gusta: {
               title: 'Gusta Carona',
@@ -262,8 +260,7 @@ export const translations = {
           'If you need a graphic design, a logo or a flyer, please don’t hesitate to contact me!'
         ],
         portfolio: {
-          eyebrow: 'Portfolio',
-          title: 'Selected projects',
+          title: 'Graphic design portfolio',
           intro: 'A selection of graphics created for events and organisations.',
           view: 'Enlarge',
           close: 'Close image',
@@ -271,13 +268,13 @@ export const translations = {
           next: 'Next image',
           projects: {
             vmi: {
-              title: 'VMI — 50th anniversary',
-              meta: 'Save the date · 2026',
+              title: 'VMI — 50th anniversary celebration',
+              meta: '2026',
               imageAlt: 'Save the date created for VMI’s 50th anniversary'
             },
             uga: {
               title: 'UGA Fribourg',
-              meta: 'Event communication · Autumn semester 2025'
+              meta: 'Event communication 2025–2026'
             },
             gusta: {
               title: 'Gusta Carona',
