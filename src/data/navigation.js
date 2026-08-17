@@ -5,6 +5,5 @@ export const navItems = [
   { label: 'Sticker Printing', href: '/sticker-printing/' },
   { label: 'Hostile Wear', href: '/hostile-wear/' },
   { label: 'Custom clothes', href: '/custom-clothes/' },
-  { label: 'About me', href: '/about-me/' },
-  { label: 'Contacts', href: '/contacts/' }
+  { label: 'About me', href: '/about-me/' }
 ];

@@ -28,7 +28,7 @@ const introductionClass = slug === 'grafic-designer'
           'sticker-page-hero': slug === 'sticker-printing',
           'hostile-page-hero': slug === 'hostile-wear',
           'about-page-hero': slug === 'about-me',
-          'section-page-hero': ['custom-clothes', 'contacts'].includes(slug)
+          'section-page-hero': slug === 'custom-clothes'
         }
       ]}
       aria-label={`${page.title} — ${copy.a11y.mainArea}`}

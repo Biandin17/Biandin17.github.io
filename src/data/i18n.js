@@ -14,8 +14,7 @@ export const pageSlugs = [
   'sticker-printing',
   'hostile-wear',
   'custom-clothes',
-  'about-me',
-  'contacts'
+  'about-me'
 ];
 
 export const translations = {
@@ -40,8 +39,7 @@ export const translations = {
       'sticker-printing': 'Stampa adesivi',
       'hostile-wear': 'Hostile Wear',
       'custom-clothes': 'Abbigliamento personalizzato',
-      'about-me': 'Chi sono',
-      contacts: 'Contatti'
+      'about-me': 'Chi sono'
     },
     home: {
       title: 'Steelheads Events',
@@ -88,8 +86,7 @@ export const translations = {
           'Mi chiamo Eric Bianda, ho 23 anni e studio comunicazione e informatica gestionale all’Università di Friburgo.',
           'Mi piace organizzare eventi e creare sia prodotti fisici sia grafiche digitali.'
         ]
-      },
-      contacts: { title: 'Contatti' }
+      }
     }
   },
 
@@ -114,8 +111,7 @@ export const translations = {
       'sticker-printing': 'Impression d’autocollants',
       'hostile-wear': 'Hostile Wear',
       'custom-clothes': 'Vêtements personnalisés',
-      'about-me': 'À propos',
-      contacts: 'Contacts'
+      'about-me': 'À propos'
     },
     home: {
       title: 'Steelheads Events',
@@ -162,8 +158,7 @@ export const translations = {
           'Je m’appelle Eric Bianda, j’ai 23 ans et j’étudie la communication et l’informatique de gestion à l’Université de Fribourg.',
           'J’aime organiser des événements et créer aussi bien des produits physiques que des supports graphiques numériques.'
         ]
-      },
-      contacts: { title: 'Contacts' }
+      }
     }
   },
 
@@ -188,8 +183,7 @@ export const translations = {
       'sticker-printing': 'Sticker Printing',
       'hostile-wear': 'Hostile Wear',
       'custom-clothes': 'Custom Clothes',
-      'about-me': 'About Me',
-      contacts: 'Contacts'
+      'about-me': 'About Me'
     },
     home: {
       title: 'Steelheads Events',
@@ -236,8 +230,7 @@ export const translations = {
           'My name is Eric Bianda, I’m 23 years old and I’m a student at the University of Fribourg, studying communication and business informatics.',
           'I enjoy organising events and designing both physical products and digital graphics.'
         ]
-      },
-      contacts: { title: 'Contacts' }
+      }
     }
   }
 };
