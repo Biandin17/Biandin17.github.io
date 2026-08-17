@@ -1,0 +1,551 @@
+---
+import { getCopy } from '../data/i18n.js';
+
+const { lang = 'it' } = Astro.props;
+const portfolio = getCopy(lang).pages['grafic-designer'].portfolio;
+
+const ugaImages = [
+  {
+    small: '/assets/portfolio/uga-apero-600.webp',
+    large: '/assets/portfolio/uga-apero-1200.webp',
+    alt: 'Apero iniziale — UGA Fribourg',
+    caption: 'Apero iniziale'
+  },
+  {
+    small: '/assets/portfolio/uga-beerpong-600.webp',
+    large: '/assets/portfolio/uga-beerpong-1200.webp',
+    alt: 'Spooky Beerpong — UGA Fribourg',
+    caption: 'Spooky Beerpong'
+  },
+  {
+    small: '/assets/portfolio/uga-calendario-600.webp',
+    large: '/assets/portfolio/uga-calendario-1200.webp',
+    alt: 'Calendario eventi SA25 — UGA Fribourg',
+    caption: 'Calendario SA25'
+  },
+  {
+    small: '/assets/portfolio/uga-tombola-600.webp',
+    large: '/assets/portfolio/uga-tombola-1200.webp',
+    alt: 'La Tombola — UGA Fribourg',
+    caption: 'La Tombola'
+  },
+  {
+    small: '/assets/portfolio/uga-cuv-party-600.webp',
+    large: '/assets/portfolio/uga-cuv-party-1200.webp',
+    alt: 'CUV x UGA Party — UGA Fribourg',
+    caption: 'CUV × UGA Party'
+  }
+];
+---
+
+<section class="graphic-portfolio" aria-labelledby="portfolio-title">
+  <header class="portfolio-introduction">
+    <p class="portfolio-eyebrow">{portfolio.eyebrow}</p>
+    <h2 id="portfolio-title">{portfolio.title}</h2>
+    <p>{portfolio.intro}</p>
+  </header>
+
+  <article class="portfolio-project portfolio-project-featured">
+    <header class="portfolio-project-heading">
+      <span aria-hidden="true">01</span>
+      <h3>{portfolio.projects.vmi.title}</h3>
+      <p>{portfolio.projects.vmi.meta}</p>
+    </header>
+
+    <div class="portfolio-featured-frame">
+      <button
+        class="portfolio-image-button"
+        type="button"
+        data-portfolio-image
+        data-large="/assets/portfolio/vmi-save-the-date-1440.webp"
+        data-alt={portfolio.projects.vmi.imageAlt}
+        data-caption={`${portfolio.projects.vmi.title} — ${portfolio.projects.vmi.meta}`}
+        aria-label={`${portfolio.view}: ${portfolio.projects.vmi.title}`}
+      >
+        <img
+          src="/assets/portfolio/vmi-save-the-date-720.webp"
+          srcset="/assets/portfolio/vmi-save-the-date-720.webp 720w, /assets/portfolio/vmi-save-the-date-1440.webp 1440w"
+          sizes="(max-width: 760px) 92vw, 720px"
+          alt={portfolio.projects.vmi.imageAlt}
+          width="720"
+          height="1018"
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="portfolio-open-label">{portfolio.view}</span>
+      </button>
+    </div>
+  </article>
+
+  <article class="portfolio-project">
+    <header class="portfolio-project-heading">
+      <span aria-hidden="true">02</span>
+      <h3>{portfolio.projects.uga.title}</h3>
+      <p>{portfolio.projects.uga.meta}</p>
+    </header>
+
+    <div class="portfolio-square-grid">
+      {ugaImages.map((image) => (
+        <button
+          class="portfolio-image-button"
+          type="button"
+          data-portfolio-image
+          data-large={image.large}
+          data-alt={image.alt}
+          data-caption={`${portfolio.projects.uga.title} — ${image.caption}`}
+          aria-label={`${portfolio.view}: ${image.caption}`}
+        >
+          <img
+            src={image.small}
+            srcset={`${image.small} 600w, ${image.large} 1200w`}
+            sizes="(max-width: 600px) 92vw, (max-width: 980px) 44vw, 380px"
+            alt={image.alt}
+            width="600"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="portfolio-open-label">{portfolio.view}</span>
+        </button>
+      ))}
+    </div>
+  </article>
+
+  <article class="portfolio-project">
+    <header class="portfolio-project-heading">
+      <span aria-hidden="true">03</span>
+      <h3>{portfolio.projects.gusta.title}</h3>
+      <p>{portfolio.projects.gusta.meta}</p>
+    </header>
+
+    <div class="portfolio-poster-frame">
+      <button
+        class="portfolio-image-button"
+        type="button"
+        data-portfolio-image
+        data-large="/assets/portfolio/gusta-carona-1440.webp"
+        data-alt={portfolio.projects.gusta.imageAlt}
+        data-caption={`${portfolio.projects.gusta.title} — ${portfolio.projects.gusta.meta}`}
+        aria-label={`${portfolio.view}: ${portfolio.projects.gusta.title}`}
+      >
+        <img
+          src="/assets/portfolio/gusta-carona-720.webp"
+          srcset="/assets/portfolio/gusta-carona-720.webp 720w, /assets/portfolio/gusta-carona-1440.webp 1440w"
+          sizes="(max-width: 680px) 92vw, 620px"
+          alt={portfolio.projects.gusta.imageAlt}
+          width="720"
+          height="1019"
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="portfolio-open-label">{portfolio.view}</span>
+      </button>
+    </div>
+  </article>
+
+  <dialog class="portfolio-lightbox" aria-label={portfolio.eyebrow}>
+    <button class="portfolio-lightbox-close" type="button" aria-label={portfolio.close}>×</button>
+    <button class="portfolio-lightbox-previous" type="button" aria-label={portfolio.previous}>‹</button>
+    <figure>
+      <img alt="" />
+      <figcaption></figcaption>
+    </figure>
+    <button class="portfolio-lightbox-next" type="button" aria-label={portfolio.next}>›</button>
+  </dialog>
+</section>
+
+<script>
+  function initialisePortfolio() {
+    document.querySelectorAll('.graphic-portfolio:not([data-portfolio-ready])').forEach((section) => {
+      if (!(section instanceof HTMLElement)) return;
+
+      const dialog = section.querySelector('.portfolio-lightbox');
+      const dialogImage = dialog?.querySelector('img');
+      const caption = dialog?.querySelector('figcaption');
+      const closeButton = dialog?.querySelector('.portfolio-lightbox-close');
+      const previousButton = dialog?.querySelector('.portfolio-lightbox-previous');
+      const nextButton = dialog?.querySelector('.portfolio-lightbox-next');
+      const triggers = Array.from(section.querySelectorAll('[data-portfolio-image]'));
+
+      if (!(dialog instanceof HTMLDialogElement) || !(dialogImage instanceof HTMLImageElement) || !(caption instanceof HTMLElement)) return;
+
+      section.dataset.portfolioReady = 'true';
+      let currentIndex = 0;
+      let opener;
+
+      const openImage = (index) => {
+        const trigger = triggers[index];
+        if (!(trigger instanceof HTMLElement)) return;
+
+        currentIndex = index;
+        opener = trigger;
+        dialogImage.src = trigger.dataset.large ?? '';
+        dialogImage.alt = trigger.dataset.alt ?? '';
+        caption.textContent = trigger.dataset.caption ?? '';
+        if (!dialog.open) dialog.showModal();
+      };
+
+      triggers.forEach((trigger, index) => {
+        trigger.addEventListener('click', () => openImage(index));
+      });
+
+      closeButton?.addEventListener('click', () => dialog.close());
+      previousButton?.addEventListener('click', () => openImage((currentIndex - 1 + triggers.length) % triggers.length));
+      nextButton?.addEventListener('click', () => openImage((currentIndex + 1) % triggers.length));
+
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+
+      dialog.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') openImage((currentIndex - 1 + triggers.length) % triggers.length);
+        if (event.key === 'ArrowRight') openImage((currentIndex + 1) % triggers.length);
+      });
+
+      dialog.addEventListener('close', () => {
+        if (opener instanceof HTMLElement) opener.focus();
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initialisePortfolio);
+  initialisePortfolio();
+</script>
+
+<style>
+  .graphic-portfolio {
+    width: 100%;
+    padding: 78px 24px 92px;
+    border-top: 6px solid var(--dark);
+    background: rgba(214, 216, 214, 0.62);
+  }
+
+  .portfolio-introduction,
+  .portfolio-project {
+    width: min(1240px, 100%);
+    margin-inline: auto;
+  }
+
+  .portfolio-introduction {
+    margin-bottom: 72px;
+  }
+
+  .portfolio-eyebrow {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .portfolio-introduction h2 {
+    max-width: 980px;
+    margin: 0;
+    font-size: clamp(3.5rem, 8vw, 7.6rem);
+    line-height: 0.82;
+    letter-spacing: -0.065em;
+  }
+
+  .portfolio-introduction > p:last-child {
+    max-width: 700px;
+    margin: 28px 0 0;
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    line-height: 1.22;
+    font-weight: 700;
+  }
+
+  .portfolio-project {
+    padding-top: 30px;
+    border-top: 3px solid var(--dark);
+  }
+
+  .portfolio-project + .portfolio-project {
+    margin-top: 96px;
+  }
+
+  .portfolio-project-heading {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 22px;
+    margin-bottom: 34px;
+  }
+
+  .portfolio-project-heading > span {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+
+  .portfolio-project-heading h3 {
+    margin: 0;
+    font-size: clamp(2.2rem, 5vw, 4.6rem);
+    line-height: 0.88;
+    letter-spacing: -0.055em;
+    text-transform: uppercase;
+  }
+
+  .portfolio-project-heading p {
+    margin: 0;
+    font-size: 1.05rem;
+    font-style: normal;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .portfolio-featured-frame,
+  .portfolio-poster-frame {
+    width: min(720px, 100%);
+    margin-inline: auto;
+  }
+
+  .portfolio-poster-frame {
+    width: min(620px, 100%);
+  }
+
+  .portfolio-square-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .portfolio-square-grid .portfolio-image-button {
+    grid-column: span 2;
+  }
+
+  .portfolio-square-grid .portfolio-image-button:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .portfolio-square-grid .portfolio-image-button:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+
+  .portfolio-image-button {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    border: 5px solid var(--dark);
+    border-radius: 0;
+    background: var(--white);
+    box-shadow: 6px 6px 0 var(--gray);
+    cursor: zoom-in;
+    appearance: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .portfolio-image-button:hover,
+  .portfolio-image-button:focus-visible {
+    transform: translate(-5px, -5px);
+    box-shadow: 11px 11px 0 var(--gray);
+    outline: none;
+  }
+
+  .portfolio-image-button img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .portfolio-square-grid .portfolio-image-button img {
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .portfolio-open-label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px 15px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transform: translateY(100%);
+    transition: transform 0.2s ease;
+  }
+
+  .portfolio-image-button:hover .portfolio-open-label,
+  .portfolio-image-button:focus-visible .portfolio-open-label {
+    transform: translateY(0);
+  }
+
+  .portfolio-lightbox {
+    width: min(96vw, 1500px);
+    max-width: none;
+    max-height: 94svh;
+    margin: auto;
+    padding: 56px 72px 24px;
+    overflow: hidden;
+    border: 4px solid var(--white);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.96);
+    color: var(--white);
+  }
+
+  .portfolio-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.84);
+    backdrop-filter: blur(3px);
+  }
+
+  .portfolio-lightbox figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+  }
+
+  .portfolio-lightbox img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(94svh - 120px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .portfolio-lightbox figcaption {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .portfolio-lightbox button {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    place-items: center;
+    border: 2px solid var(--white);
+    border-radius: 0;
+    background: var(--black);
+    color: var(--white);
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    cursor: pointer;
+  }
+
+  .portfolio-lightbox button:hover,
+  .portfolio-lightbox button:focus-visible {
+    background: var(--white);
+    color: var(--black);
+    outline: none;
+  }
+
+  .portfolio-lightbox-close {
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+  }
+
+  .portfolio-lightbox-previous,
+  .portfolio-lightbox-next {
+    top: 50%;
+    font-size: 2.6rem;
+    transform: translateY(-50%);
+  }
+
+  .portfolio-lightbox-previous { left: 12px; }
+  .portfolio-lightbox-next { right: 12px; }
+
+  @media (max-width: 900px) {
+    .graphic-portfolio {
+      padding: 58px 18px 72px;
+      border-top-width: 4px;
+    }
+
+    .portfolio-introduction {
+      margin-bottom: 52px;
+    }
+
+    .portfolio-introduction h2 {
+      font-size: clamp(3rem, 15vw, 5.7rem);
+    }
+
+    .portfolio-project-heading {
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .portfolio-project-heading p {
+      grid-column: 2;
+      text-align: left;
+    }
+
+    .portfolio-project + .portfolio-project {
+      margin-top: 72px;
+    }
+
+    .portfolio-square-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .portfolio-square-grid .portfolio-image-button,
+    .portfolio-square-grid .portfolio-image-button:nth-child(4) {
+      grid-column: auto;
+    }
+
+    .portfolio-square-grid .portfolio-image-button:nth-child(5) {
+      grid-column: 1 / -1;
+      width: calc(50% - 8px);
+      justify-self: center;
+    }
+
+    .portfolio-image-button {
+      border-width: 4px;
+      box-shadow: 4px 4px 0 var(--gray);
+    }
+
+    .portfolio-open-label { display: none; }
+
+    .portfolio-lightbox {
+      width: 100vw;
+      max-height: 100svh;
+      padding: 58px 50px 22px;
+      border-width: 0;
+    }
+
+    .portfolio-lightbox img {
+      max-height: calc(100svh - 130px);
+    }
+
+    .portfolio-lightbox-previous { left: 4px; }
+    .portfolio-lightbox-next { right: 4px; }
+  }
+
+  @media (max-width: 560px) {
+    .portfolio-square-grid {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .portfolio-square-grid .portfolio-image-button:nth-child(5) {
+      grid-column: auto;
+      width: 100%;
+    }
+
+    .portfolio-project-heading h3 {
+      font-size: clamp(2rem, 11vw, 3.1rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .portfolio-image-button,
+    .portfolio-open-label {
+      transition: none;
+    }
+  }
+</style>

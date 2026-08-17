@@ -66,7 +66,32 @@ export const translations = {
         paragraphs: [
           'Ho imparato da autodidatta a utilizzare i software di grafica e Photoshop. Ho oltre sei anni di esperienza con questi programmi e ho realizzato progetti per diverse organizzazioni, tra cui VMI, Uga Fribourg e Gusta Carona.',
           'Se hai bisogno di una grafica, un logo o un volantino, non esitare a contattarmi!'
-        ]
+        ],
+        portfolio: {
+          eyebrow: 'Portfolio',
+          title: 'Progetti selezionati',
+          intro: 'Una selezione di grafiche realizzate per eventi e organizzazioni.',
+          view: 'Ingrandisci',
+          close: 'Chiudi immagine',
+          previous: 'Immagine precedente',
+          next: 'Immagine successiva',
+          projects: {
+            vmi: {
+              title: 'VMI — 50° anniversario',
+              meta: 'Save the date · 2026',
+              imageAlt: 'Save the date realizzato per il 50° anniversario di VMI'
+            },
+            uga: {
+              title: 'UGA Fribourg',
+              meta: 'Comunicazione eventi · Semestre autunnale 2025'
+            },
+            gusta: {
+              title: 'Gusta Carona',
+              meta: 'Flyer evento · 2024',
+              imageAlt: 'Flyer realizzato per la passeggiata gastronomica Gusta Carona 2024'
+            }
+          }
+        }
       },
       'sticker-printing': {
         title: 'Stampa adesivi',
@@ -138,7 +163,32 @@ export const translations = {
         paragraphs: [
           'J’ai appris en autodidacte à utiliser les logiciels de graphisme et Photoshop. J’ai plus de six ans d’expérience avec ces programmes et j’ai réalisé des projets pour différentes organisations, notamment VMI, Uga Fribourg et Gusta Carona.',
           'Si vous avez besoin d’un visuel, d’un logo ou d’un flyer, n’hésitez pas à me contacter !'
-        ]
+        ],
+        portfolio: {
+          eyebrow: 'Portfolio',
+          title: 'Projets sélectionnés',
+          intro: 'Une sélection de créations graphiques réalisées pour des événements et des organisations.',
+          view: 'Agrandir',
+          close: 'Fermer l’image',
+          previous: 'Image précédente',
+          next: 'Image suivante',
+          projects: {
+            vmi: {
+              title: 'VMI — 50e anniversaire',
+              meta: 'Save the date · 2026',
+              imageAlt: 'Save the date réalisé pour le 50e anniversaire de VMI'
+            },
+            uga: {
+              title: 'UGA Fribourg',
+              meta: 'Communication événementielle · Semestre d’automne 2025'
+            },
+            gusta: {
+              title: 'Gusta Carona',
+              meta: 'Flyer événementiel · 2024',
+              imageAlt: 'Flyer réalisé pour la promenade gastronomique Gusta Carona 2024'
+            }
+          }
+        }
       },
       'sticker-printing': {
         title: 'Impression d’autocollants',
@@ -210,7 +260,32 @@ export const translations = {
         paragraphs: [
           'I’m self-taught in using design software and Photoshop. I have over six years’ experience using these programmes and I’ve created designs for various organisations, including VMI, Uga Fribourg and Gusta Carona.',
           'If you need a graphic design, a logo or a flyer, please don’t hesitate to contact me!'
-        ]
+        ],
+        portfolio: {
+          eyebrow: 'Portfolio',
+          title: 'Selected projects',
+          intro: 'A selection of graphics created for events and organisations.',
+          view: 'Enlarge',
+          close: 'Close image',
+          previous: 'Previous image',
+          next: 'Next image',
+          projects: {
+            vmi: {
+              title: 'VMI — 50th anniversary',
+              meta: 'Save the date · 2026',
+              imageAlt: 'Save the date created for VMI’s 50th anniversary'
+            },
+            uga: {
+              title: 'UGA Fribourg',
+              meta: 'Event communication · Autumn semester 2025'
+            },
+            gusta: {
+              title: 'Gusta Carona',
+              meta: 'Event flyer · 2024',
+              imageAlt: 'Flyer created for the Gusta Carona 2024 gastronomic walk'
+            }
+          }
+        }
       },
       'sticker-printing': {
         title: 'Sticker Printing',

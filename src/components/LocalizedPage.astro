@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from './SiteHeader.astro';
 import ContactSection from './ContactSection.astro';
+import GraphicPortfolio from './GraphicPortfolio.astro';
 import { getCopy } from '../data/i18n.js';
 
 const { lang, slug } = Astro.props;
@@ -76,10 +77,14 @@ const introductionClass = slug === 'grafic-designer'
       )}
     </section>
 
-    <section
-      class="empty-content-area"
-      aria-label={`${page.title} — ${copy.a11y.contentComing}`}
-    ></section>
+    {slug === 'grafic-designer' ? (
+      <GraphicPortfolio lang={lang} />
+    ) : (
+      <section
+        class="empty-content-area"
+        aria-label={`${page.title} — ${copy.a11y.contentComing}`}
+      ></section>
+    )}
 
     <ContactSection lang={lang} />
   </main>
