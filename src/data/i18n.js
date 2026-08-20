@@ -59,7 +59,12 @@ export const translations = {
     pages: {
       'sh-events': {
         title: 'SH Events',
-        imageAlt: 'Il prossimo evento è in arrivo. Ulteriori informazioni saranno annunciate presto.'
+        imageAlt: 'Il prossimo evento è in arrivo. Ulteriori informazioni saranno annunciate presto.',
+        experience: {
+          label: 'Esperienza nell’organizzazione di eventi',
+          beforeLink: 'Organizzo eventi dal 2023, dapprima nel Comitato feste degli studenti del Liceo di Locarno. Successivamente ho proseguito questa attività nell’U.G.A., l’associazione dei ticinesi a Friborgo, ricoprendo anche il ruolo di Partner Manager. Dal 2026 organizzo eventi anche in modo indipendente, dopo aver approfondito le mie conoscenze attraverso diversi corsi universitari dedicati all’',
+          linkLabel: 'Event Management'
+        }
       },
       'grafic-designer': {
         title: 'Graphic Designer',
@@ -155,7 +160,12 @@ export const translations = {
     pages: {
       'sh-events': {
         title: 'SH Events',
-        imageAlt: 'Le prochain événement arrive bientôt. De plus amples informations seront annoncées prochainement.'
+        imageAlt: 'Le prochain événement arrive bientôt. De plus amples informations seront annoncées prochainement.',
+        experience: {
+          label: 'Expérience dans l’organisation d’événements',
+          beforeLink: 'J’organise des événements depuis 2023, d’abord au sein du comité des fêtes des élèves du Liceo di Locarno. J’ai ensuite poursuivi cette activité au sein de l’U.G.A., l’association des Tessinois à Fribourg, où j’ai également occupé le rôle de Partner Manager. Depuis 2026, j’organise aussi des événements de manière indépendante, après avoir approfondi mes connaissances grâce à plusieurs cours universitaires consacrés à l’',
+          linkLabel: 'Event Management'
+        }
       },
       'grafic-designer': {
         title: 'Graphiste',
@@ -251,7 +261,12 @@ export const translations = {
     pages: {
       'sh-events': {
         title: 'SH Events',
-        imageAlt: 'The next event is coming up. More information will be announced soon.'
+        imageAlt: 'The next event is coming up. More information will be announced soon.',
+        experience: {
+          label: 'Experience in event organisation',
+          beforeLink: 'I have been organising events since 2023, initially as part of the student events committee at Liceo di Locarno. I later continued this work with U.G.A., the association of Ticino students in Fribourg, where I also served as Partner Manager. Since 2026, I have also been organising events independently, after expanding my knowledge through several university courses in ',
+          linkLabel: 'Event Management'
+        }
       },
       'grafic-designer': {
         title: 'Graphic Designer',
