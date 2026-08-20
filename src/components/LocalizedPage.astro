@@ -82,11 +82,7 @@ const introductionClass = slug === 'grafic-designer'
     ) : slug === 'sh-events' ? (
       <section class="event-experience-section" aria-label={page.experience.label}>
         <p class="event-experience-copy">
-          {page.experience.beforeLink}<a
-            href="https://moodle.unifr.ch/course/view.php?id=284875"
-            target="_blank"
-            rel="noopener noreferrer"
-          >{page.experience.linkLabel}</a>.
+          {page.experience.beforeLink}{page.experience.linkLabel}.
         </p>
       </section>
     ) : (
@@ -186,21 +182,6 @@ const introductionClass = slug === 'grafic-designer'
     font-size: clamp(1.35rem, 2.2vw, 1.85rem);
     line-height: 1.45;
     font-weight: 700;
-  }
-
-  .event-experience-copy a {
-    color: inherit;
-    font-weight: 900;
-    text-decoration-line: underline;
-    text-decoration-thickness: 3px;
-    text-underline-offset: 5px;
-  }
-
-  .event-experience-copy a:hover,
-  .event-experience-copy a:focus-visible {
-    color: var(--black);
-    text-decoration-thickness: 5px;
-    outline: none;
   }
 
   .hostile-project-link {
